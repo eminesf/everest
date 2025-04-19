@@ -1,0 +1,8 @@
+@use "@/styles/variables" as vars;
+
+body {
+  font-family: vars.$font-family;
+  font-size: vars.$font-size-base;
+  background-color: vars.$secondary-color;
+  color: vars.$primary-color;
+}
