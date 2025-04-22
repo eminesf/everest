@@ -1,6 +1,7 @@
 import api from "@/api/axios";
 import { useToDoStore } from "@/store/store";
 import { Todos } from "@/types/to-do";
+import { formatDateToAMPM } from "@/util/formatDateToAMPM";
 import { useEffect } from "react";
 
 const useFetchTodoApiList = () => {
@@ -31,9 +32,10 @@ const useFetchTodoApiList = () => {
               ? todo.checked === 1
               : todo.checked;
 
-          const createdAt = new Date().toISOString();
+          const createdAt = formatDateToAMPM(new Date());
+          const finishedAt = formatDateToAMPM(new Date());
 
-          return { ...todo, id, content, checked, createdAt };
+          return { ...todo, id, content, checked, createdAt, finishedAt };
         });
 
         const sortedTodos = processedTodos.sort(

@@ -1,4 +1,5 @@
 import { ToDo } from "@/types/to-do";
+import { formatDateToAMPM } from "@/util/formatDateToAMPM";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -34,7 +35,7 @@ export const useToDoStore = create<todoStore>()(
             id: crypto.randomUUID(),
             content,
             checked: false,
-            createdAt: new Date().toISOString(),
+            createdAt: formatDateToAMPM(new Date()),
           };
           const updatedTodos = [...state.toDos, todo];
           return {
@@ -71,7 +72,7 @@ export const useToDoStore = create<todoStore>()(
               ? {
                   ...todo,
                   checked: !todo.checked,
-                  finishedAt: new Date().toISOString(),
+                  finishedAt: formatDateToAMPM(new Date()),
                 }
               : todo
           );
