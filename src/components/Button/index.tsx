@@ -3,7 +3,7 @@ import "./styles.scss";
 import { IconType } from "react-icons";
 
 interface ButtonProps {
-  variant: "confirm" | "cancel" | "delete";
+  variant: "confirm" | "default" | "delete";
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   onClick?: () => void;
