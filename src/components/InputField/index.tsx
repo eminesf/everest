@@ -56,7 +56,7 @@ const InputField: FC<InputFieldProps> = ({
   };
 
   return (
-    <>
+    <div className="input-field-container">
       <div className={`input-field input-field--${size}`}>
         <input
           className={`input input--${size} ${error ? "input--error" : ""}`}
@@ -86,7 +86,7 @@ const InputField: FC<InputFieldProps> = ({
         )}
       </div>
       {error && <span className="input-error">{error}</span>}
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,12 @@
 @use "sass:color";
 @use "@/styles/variables" as vars;
 
+.input-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .input {
   font-family: vars.$font-family;
   font-size: vars.$font-size-base;
