@@ -11,6 +11,7 @@ interface InputFieldProps {
   onChange?: (value: string) => void;
   value?: string;
   validate?: boolean;
+  onButtonClick?: () => void;
 }
 
 const InputField: FC<InputFieldProps> = ({
@@ -20,6 +21,7 @@ const InputField: FC<InputFieldProps> = ({
   onChange,
   value = "",
   validate = true,
+  onButtonClick,
 }) => {
   const [error, setError] = useState<string | null>(null);
 
@@ -47,6 +49,12 @@ const InputField: FC<InputFieldProps> = ({
     onChange?.(inputValue);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && onButtonClick && value.trim()) {
+      onButtonClick();
+    }
+  };
+
   return (
     <>
       <div className={`input-field input-field--${size}`}>
@@ -56,12 +64,25 @@ const InputField: FC<InputFieldProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
         {type === "newField" && (
-          <Button variant="confirm" icon={IoIosAddCircleOutline} size={size} />
+          <Button
+            variant="confirm"
+            icon={IoIosAddCircleOutline}
+            size={size}
+            onClick={onButtonClick}
+            disabled={!value.trim()}
+          />
         )}
         {type === "search" && (
-          <Button variant="confirm" icon={IoIosSearch} size={size} />
+          <Button
+            variant="confirm"
+            icon={IoIosSearch}
+            size={size}
+            onClick={onButtonClick}
+            disabled={!value.trim()}
+          />
         )}
       </div>
       {error && <span className="input-error">{error}</span>}
