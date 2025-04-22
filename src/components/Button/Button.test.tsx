@@ -18,7 +18,7 @@ describe("Button Component", () => {
 
   it("renders the button with a custom size", () => {
     const { getByTestId } = render(
-      <Button variant="cancel" size="lg">
+      <Button variant="default" size="lg">
         Large Button
       </Button>
     );
