@@ -1,6 +1,6 @@
 import api from "@/api/axios";
 import { useToDoStore } from "@/store/store";
-import { Todos } from "@/types/todo";
+import { Todos } from "@/types/to-do";
 import { useEffect } from "react";
 
 const useFetchTodoApiList = () => {

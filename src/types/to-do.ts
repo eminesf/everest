@@ -3,6 +3,7 @@ export type ToDo = {
   content: string;
   checked: boolean;
   createdAt: string;
+  finishedAt?: string;
 };
 
 export type Todos = {

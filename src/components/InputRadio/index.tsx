@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import "./styles.scss";
-import { RadioObjType } from "@/types/todo";
+import { RadioObjType } from "@/types/to-do";
 
 interface InputRadioProps {
   radioOptions: RadioObjType[];
