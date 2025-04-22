@@ -1,11 +1,9 @@
 import { FC, useState } from "react";
-import { LuPencil, LuTrash2 } from "react-icons/lu";
 
-import { InputField, Button, InputRadio } from "@/components";
+import { InputField, InputRadio, TodoItem } from "@/components";
 import { useToDoStore } from "@/store/store";
 import { useFetchTodoApiList } from "@/hooks/useFetchTodoApiList";
-import { formatDateTime } from "@/util/formatDateTime";
-import { RadioObjType } from "@/types/todo";
+import { RadioObjType } from "@/types/to-do";
 
 import "@/App.scss";
 
@@ -27,16 +25,12 @@ const App: FC = () => {
     "all"
   );
 
-  const {
-    toDos,
-    removeToDo: removeTodo,
-    updateToDo: updateTodo,
-  } = useToDoStore();
+  const { toDos, createToDo } = useToDoStore();
 
   useFetchTodoApiList();
 
   const filteredTodos = toDos.filter((todo) => {
-    const formattedDate = formatDateTime(todo.createdAt);
+    const formattedDate = todo.createdAt;
 
     const matchesSearch =
       todo.content.toLowerCase().includes(value.toLowerCase()) ||
@@ -58,12 +52,16 @@ const App: FC = () => {
         </div>
         <InputField
           size="md"
-          type="search"
-          placeholder="Search"
+          type="newField"
+          placeholder="Search or Add new to-do"
           value={value}
           onChange={(val) => setValue(val)}
-          validate={false}
-        />{" "}
+          validate={true}
+          onButtonClick={() => {
+            createToDo(value);
+            setValue("");
+          }}
+        />
         <InputRadio
           name="label"
           setFilterOption={setFilterOption}
@@ -71,43 +69,8 @@ const App: FC = () => {
           radioOptions={inputRadioObject}
         />
         {filteredTodos.map((todo) => (
-          <div key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.checked}
-              onClick={() =>
-                updateTodo(todo.id, {
-                  checked: !todo.checked,
-                })
-              }
-            />{" "}
-            <span
-              style={{
-                textDecoration: todo.checked ? "line-through" : "none",
-              }}
-            >
-              {todo.content}
-            </span>{" "}
-            <span style={{ fontSize: "0.8em", color: "#888" }}>
-              - {formatDateTime(todo.createdAt)}
-            </span>
-            <Button
-              size="sm"
-              variant="delete"
-              icon={LuTrash2}
-              onClick={() => removeTodo(todo.id)}
-            />
-            <Button
-              size="sm"
-              variant="default"
-              icon={LuPencil}
-              onClick={() => {}}
-            />
-          </div>
+          <TodoItem todo={todo} />
         ))}
-        <div className="container_content__todo">
-          <Button variant="confirm">Add new Todo</Button>
-        </div>
       </div>
     </section>
   );

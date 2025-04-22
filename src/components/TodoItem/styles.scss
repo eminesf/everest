@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "@/styles/variables" as vars;
+
+.todo-item_container {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: color.adjust(vars.$body-color, $lightness: 10%);
+  opacity: 100;
+  border-radius: 0.5rem;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .todo-item_content {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .created-finished {
+    font-size: 0.7em;
+    color: #888;
+  }
+}
+
+.todo-item__actions {
+  display: flex;
+  gap: 0.5rem;
+}
