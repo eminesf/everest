@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   const isTest = mode === "test";
 
   return {
+    base: "/everest/",
     plugins: [react()],
     resolve: {
       alias: {
