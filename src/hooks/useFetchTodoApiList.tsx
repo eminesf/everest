@@ -2,6 +2,8 @@ import api from "@/api/axios";
 import { useToDoStore } from "@/store/store";
 import { Todos } from "@/types/to-do";
 import { formatDateToAMPM } from "@/util/formatDateToAMPM";
+import { v4 as uuidv4 } from "uuid";
+
 import { useEffect } from "react";
 
 const useFetchTodoApiList = () => {
@@ -18,7 +20,7 @@ const useFetchTodoApiList = () => {
           let id = todo.id;
 
           if (!id || idSet.has(id)) {
-            id = crypto.randomUUID();
+            id = uuidv4();
           }
           idSet.add(id);
 

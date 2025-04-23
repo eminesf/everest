@@ -2,6 +2,7 @@ import { ToDo } from "@/types/to-do";
 import { formatDateToAMPM } from "@/util/formatDateToAMPM";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { v4 as uuidv4 } from "uuid";
 
 type todoStore = {
   toDos: ToDo[];
@@ -32,7 +33,7 @@ export const useToDoStore = create<todoStore>()(
       createToDo: (content) =>
         set((state) => {
           const todo: ToDo = {
-            id: crypto.randomUUID(),
+            id: uuidv4(),
             content,
             checked: false,
             createdAt: formatDateToAMPM(new Date()),
