@@ -11,5 +11,5 @@ export type Todos = {
 };
 
 export type RadioObjType = {
-  filterOption: "all" | "toDo" | "done";
+  filterOption: "all" | "to-do" | "done";
 };
