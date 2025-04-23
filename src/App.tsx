@@ -48,7 +48,7 @@ const App: FC = () => {
     <section className="container">
       <div className="container_content">
         <div className="container_content__logo">
-          <img src="public/everest-logo.svg" alt="everest-logo" />{" "}
+          <img src="/everest-logo.svg" alt="everest-logo" />{" "}
         </div>
         <InputField
           size="md"
