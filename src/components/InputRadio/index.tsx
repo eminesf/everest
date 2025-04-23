@@ -6,8 +6,8 @@ import { RadioObjType } from "@/types/to-do";
 interface InputRadioProps {
   radioOptions: RadioObjType[];
   name: string;
-  setFilterOption: (option: "all" | "toDo" | "done") => void;
-  filterOption: "all" | "toDo" | "done";
+  setFilterOption: (option: "all" | "to-do" | "done") => void;
+  filterOption: "all" | "to-do" | "done";
 }
 
 const InputRadio: FC<InputRadioProps> = ({

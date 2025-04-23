@@ -21,7 +21,7 @@ const inputRadioObject: RadioObjType[] = [
 
 const App: FC = () => {
   const [value, setValue] = useState("");
-  const [filterOption, setFilterOption] = useState<"all" | "toDo" | "done">(
+  const [filterOption, setFilterOption] = useState<"all" | "to-do" | "done">(
     "all"
   );
 
@@ -38,7 +38,7 @@ const App: FC = () => {
 
     const matchesFilter =
       filterOption === "all" ||
-      (filterOption === "toDo" && !todo.checked) ||
+      (filterOption === "to-do" && !todo.checked) ||
       (filterOption === "done" && todo.checked);
 
     return matchesSearch && matchesFilter;
