@@ -8,6 +8,7 @@
   background-color: color.adjust(vars.$body-color, $lightness: 10%);
   opacity: 100;
   border-radius: 0.5rem;
+  width: 100%;
 }
 
 .todo-item {

@@ -5,7 +5,7 @@ import { z } from "zod";
 import "./styles.scss";
 
 interface InputFieldProps {
-  type: "search" | "newField";
+  type: "search" | "newField" | "default";
   size?: "sm" | "md" | "lg";
   placeholder?: string;
   onChange?: (value: string) => void;

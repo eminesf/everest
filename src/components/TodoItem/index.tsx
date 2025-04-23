@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Button } from "@/components/Button";
 import { ToDo } from "@/types/to-do";
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im";
@@ -6,16 +6,47 @@ import { LuPencil, LuTrash2 } from "react-icons/lu";
 import { useToDoStore } from "@/store/store";
 
 import "./styles.scss";
+import { Modal } from "../Modal";
+import { DeleteModalContent } from "../Modal/DeleteModalContent";
+import { EditModalContent } from "../Modal/EditModal";
 
 interface TodoItemProps {
   todo: ToDo;
+  withButton?: boolean;
 }
 
-const TodoItem: FC<TodoItemProps> = ({ todo }) => {
-  const { removeToDo, toggleToDo } = useToDoStore();
+const TodoItem: FC<TodoItemProps> = ({ todo, withButton = true }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [contentModalOpen, setContentModalOpen] = useState<"delete" | "edit">(
+    "delete"
+  );
+  const { toggleToDo } = useToDoStore();
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div key={todo.id} className="todo-item_container">
+    <div className="todo-item_container">
+      <Modal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        children={
+          contentModalOpen === "delete" ? (
+            <DeleteModalContent
+              todo={todo}
+              isOpen={isModalOpen}
+              onClose={closeModal}
+            />
+          ) : (
+            <EditModalContent
+              todo={todo}
+              isOpen={isModalOpen}
+              onClose={closeModal}
+            />
+          )
+        }
+      />
+
       <div className="todo-item">
         <span
           className="todo-item_content"
@@ -34,26 +65,34 @@ const TodoItem: FC<TodoItemProps> = ({ todo }) => {
           </span>
         </div>
       </div>
-      <div className="todo-item__actions">
-        <Button
-          size="sm"
-          variant="confirm"
-          icon={todo.checked ? ImCheckboxChecked : ImCheckboxUnchecked}
-          onClick={() => toggleToDo(todo.id)}
-        />
-        <Button
-          size="sm"
-          variant="delete"
-          icon={LuTrash2}
-          onClick={() => removeToDo(todo.id)}
-        />
-        <Button
-          size="sm"
-          variant="default"
-          icon={LuPencil}
-          onClick={() => {}}
-        />
-      </div>
+      {withButton ? (
+        <div className="todo-item__actions">
+          <Button
+            size="sm"
+            variant="confirm"
+            icon={todo.checked ? ImCheckboxChecked : ImCheckboxUnchecked}
+            onClick={() => toggleToDo(todo.id)}
+          />
+          <Button
+            size="sm"
+            variant="delete"
+            icon={LuTrash2}
+            onClick={() => {
+              setContentModalOpen("delete");
+              openModal();
+            }}
+          />
+          <Button
+            size="sm"
+            variant="default"
+            icon={LuPencil}
+            onClick={() => {
+              setContentModalOpen("edit");
+              openModal();
+            }}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
