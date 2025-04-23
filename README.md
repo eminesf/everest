@@ -77,6 +77,6 @@ Follow these steps to run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/eminesf/everest-ui-test.git
-   cd everest-ui-test
+   git clone https://github.com/eminesf/everest.git
+   cd everest
    ```
