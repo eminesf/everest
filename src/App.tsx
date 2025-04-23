@@ -69,7 +69,7 @@ const App: FC = () => {
           radioOptions={inputRadioObject}
         />
         {filteredTodos.map((todo) => (
-          <TodoItem todo={todo} />
+          <TodoItem key={todo.id} todo={todo} />
         ))}
       </div>
     </section>
