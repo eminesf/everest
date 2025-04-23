@@ -1,6 +1,7 @@
 {
   "name": "everest-ui-test",
   "private": true,
+  "homepage": "https://eminesf.github.io/everest-ui-test",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
