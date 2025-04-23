@@ -4,8 +4,10 @@
 
 ## 🌐 Live Demo
 
-The project has been deployed and is available at:  
-[https://eminesf.github.io/everest/](https://eminesf.github.io/everest/)
+The project has been deployed and is available at:
+
+- **Project Link**: [https://eminesf.github.io/everest/](https://eminesf.github.io/everest/)
+- **Storybook Link**: [https://eminesf.github.io/everest/storybook](https://eminesf.github.io/everest/storybook)
 
 ---
 
@@ -45,6 +47,10 @@ The following technologies and tools were used to build this project:
 
 - **React Icons**: For adding scalable vector icons.
 
+### Component Documentation
+
+- **Storybook**: For documenting and testing UI components in isolation.
+
 ### Testing
 
 - **Vitest**: For unit testing.
@@ -53,7 +59,7 @@ The following technologies and tools were used to build this project:
 
 ### Deployment
 
-- **GitHub Pages**: For hosting the application.
+- **GitHub Pages**: For hosting the application and Storybook.
 - **gh-pages**: For automating the deployment process.
 
 ---
