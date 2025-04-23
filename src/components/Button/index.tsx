@@ -9,6 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
   children?: React.ReactNode;
   icon?: IconType;
+  ariaLabel?: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -18,6 +19,7 @@ const Button: FC<ButtonProps> = ({
   onClick,
   children,
   icon = null,
+  ariaLabel = "",
 }) => {
   const Icon = icon;
   return (
@@ -26,6 +28,7 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       data-testid="button"
+      aria-label={ariaLabel}
     >
       <div className="button__content">
         {children}

@@ -12,9 +12,18 @@ const Modal: FC<ModalProps> = ({ children, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div
+      className="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      onClick={onClose}
+    >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-button" onClick={onClose}>
+        <button
+          className="modal-close-button"
+          aria-label="close"
+          onClick={onClose}
+        >
           <IoMdClose />
         </button>
         {children}

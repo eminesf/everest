@@ -70,6 +70,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, withButton = true }) => {
           <Button
             size="sm"
             variant="confirm"
+            ariaLabel="confirm"
             icon={todo.checked ? ImCheckboxChecked : ImCheckboxUnchecked}
             onClick={() => toggleToDo(todo.id)}
           />
@@ -77,6 +78,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, withButton = true }) => {
             size="sm"
             variant="delete"
             icon={LuTrash2}
+            ariaLabel="delete"
             onClick={() => {
               setContentModalOpen("delete");
               openModal();
@@ -86,6 +88,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, withButton = true }) => {
             size="sm"
             variant="default"
             icon={LuPencil}
+            ariaLabel="edit"
             onClick={() => {
               setContentModalOpen("edit");
               openModal();
