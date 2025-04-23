@@ -6,6 +6,7 @@ import { useFetchTodoApiList } from "@/hooks/useFetchTodoApiList";
 import { RadioObjType } from "@/types/to-do";
 
 import "@/App.scss";
+import { SiStorybook } from "react-icons/si";
 
 const inputRadioObject: RadioObjType[] = [
   {
@@ -75,6 +76,15 @@ const App: FC = () => {
           <TodoItem key={todo.id} todo={todo} />
         ))}
       </div>
+      <a
+        href="https://eminesf.github.io/everest/storybook"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="storybook-float-button"
+        aria-label="Go to Storybook"
+      >
+        <SiStorybook size={32} />
+      </a>
     </section>
   );
 };
