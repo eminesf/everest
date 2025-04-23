@@ -1,19 +1,76 @@
+# Everest UI Test
+
 ![Everest Logo](public/everest-logo.svg?raw=true "Everest Logo")
 
-# TODO App Challenge
+## 🌐 Live Demo
 
-Instructions for the implementation can be found in the [INSTRUCTIONS](./INSTRUCTIONS.md) doc.
+The project has been deployed and is available at:  
+[https://eminesf.github.io/everest/](https://eminesf.github.io/everest/)
 
-## Starting the app for the first time
+---
 
-### `yarn install`
+## 📖 About the Project
 
-This will install all the dependencies of the project defined in `package.json`. Whenever that file changes, you will also need to re-run this command to make sure all packages are updated.
+This is a **To-Do App** built as part of a technical challenge. The application allows users to create, edit, filter, and manage tasks efficiently. It is designed with modern web development practices and deployed using **GitHub Pages**.
 
-### `yarn start`
+---
 
-Opens a browser tab pointing to [http://localhost:5173](http://localhost:5173).
+## 🛠️ Technologies Used
 
-- Runs the app in the development mode.
-- The page will reload if you make edits.
-- You will also see any typing and lint errors in the console.
+The following technologies and tools were used to build this project:
+
+### Core Technologies
+
+- **React**: For building the user interface.
+- **TypeScript**: For type-safe development.
+- **Vite**: For fast development and build tooling.
+
+### State Management
+
+- **Zustand**: For managing the application's global state.
+
+### HTTP Requests
+
+- **Axios**: For handling API requests.
+
+### Form Validation
+
+- **Zod**: For schema-based form validation.
+
+### Styling
+
+- **Sass**: For writing modular and maintainable styles.
+
+### Icons
+
+- **React Icons**: For adding scalable vector icons.
+
+### Testing
+
+- **Vitest**: For unit testing.
+- **@testing-library/react**: For testing React components.
+- **@testing-library/jest-dom**: For DOM assertions.
+
+### Deployment
+
+- **GitHub Pages**: For hosting the application.
+- **gh-pages**: For automating the deployment process.
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### Prerequisites
+
+- **Node.js** (v16 or higher)
+- **Yarn** (v1.22 or higher)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/eminesf/everest-ui-test.git
+   cd everest-ui-test
+   ```
